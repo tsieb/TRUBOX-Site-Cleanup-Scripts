@@ -1,0 +1,23 @@
+{
+    "site_list": "sitemasterlist.txt",
+    "pages": {
+        "highPriority": [
+            "",
+            "/wp-admin/edit.php",
+            "/wp-admin/options-general.php"
+        ],
+        "lowPriority": [
+            "/wp-admin/users.php"
+        ]
+    },
+    "login_site": "https://trubox.ca/login",
+    "list_offset": 2,
+    "browser_options": {
+        "signon.rememberSignons": true
+    },
+    "reverse_list": false,
+    "username": "<your-username>",
+    "password": "<your-pasword>",
+    "loaded_toast_duration": 5,
+    "hotkey": "h"
+}
