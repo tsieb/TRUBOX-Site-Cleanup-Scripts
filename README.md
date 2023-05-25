@@ -14,16 +14,15 @@ The repository contains the following files:
 
 To run this project, you need to install the following Python libraries:
 
-1. `json`
-2. `pynput`
-3. `win10toast`
-4. `selenium`
-5. `threading`
+1. `pynput`
+2. `win10toast`
+3. `selenium`
+4. `threading`
 
 You can install these libraries using pip:
 
 ```bash
-pip install json pynput win10toast selenium
+pip install pynput win10toast selenium
 ```
 
 ## Configuration
