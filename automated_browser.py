@@ -15,6 +15,8 @@ from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
 
 # Background operations
 import threading
@@ -27,7 +29,7 @@ CONFIG = None
 
 # Configuration Loading
 with open('config.json', 'r') as config_file:
-    CONFIG = json.load(config_file)
+    CONFIG = json.load(config_file)["automated_browser"]
 
 
 def on_activate():
@@ -57,7 +59,7 @@ def get_options():
 def get_pages(browser, site):
     close_other_tabs(browser)
     open_priority_pages(browser, site, CONFIG["pages"]["highPriority"])
-    #open_low_priority_pages(browser, site, CONFIG["pages"]["lowPriority"])
+    open_low_priority_pages(browser, site, CONFIG["pages"]["lowPriority"])
     notify_toast(f"{site} is ready.")
 
 
@@ -70,12 +72,23 @@ def open_priority_pages(browser, site, pages):
         except Exception as e:
             print(f"Error while opening priority page {url}: {e}")
 
-def open_low_priority_pages(browser, site, pages):
-    for url in pages:
-        try:
-            open_new_tab(browser, site, url)
-        except Exception as e:
-            print(f"Error while opening priority page {url}: {e}")
+# Sloppy, needs to be refactored
+def open_low_priority_pages(browser, site, page):
+    try:
+        open_new_tab(browser, "trubox.ca", page[0] + site + page[1])
+        element = WebDriverWait(browser, 10).until(
+            EC.presence_of_element_located((By.TAG_NAME, "table"))
+        )
+        rows = element.find_elements(By.CLASS_NAME, "users column-users")
+        for row in rows:
+            link = row.find_element(By.TAG_NAME, "a")
+            actions = ActionChains(browser)
+            # Move to the link element, key down the control key, click the link, and then key up the control key
+            actions.move_to_element(link).key_down(Keys.CONTROL).click(link).key_up(Keys.CONTROL).perform()
+            print(f"Clicked {link}")
+    except Exception as e:
+        print(f"Error while opening priority page: {e}")
+
 
 
 def close_other_tabs(browser):
@@ -149,8 +162,6 @@ def main():
     login(browser)
     WebDriverWait(browser, 10).until(
         EC.presence_of_element_located((By.ID, 'dashboard-widgets')))
-
-    open_batch(browser, sites, location, list_offset)
 
     global TRIGGER_NEXT_BATCH
     while location != -1:
