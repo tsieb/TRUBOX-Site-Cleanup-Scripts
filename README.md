@@ -17,7 +17,6 @@ To run this project, you need to install the following Python libraries:
 1. `pynput`
 2. `win10toast`
 3. `selenium`
-4. `threading`
 
 You can install these libraries using pip:
 
@@ -30,7 +29,7 @@ pip install pynput win10toast selenium
 1. Rename config.json.template to config.json.
 2. Replace <your-username> and <your-password> with your login credentials.
 3. Update the site list in sitemasterlist.txt with the sites you want to automate.
-4. Configure the hotkeys, browser options, and page priorities in the config.json file.
+4. Configure the hotkeys, browser options, and pages in the config.json file.
 
 ## Execution
 
