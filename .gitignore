@@ -1,1 +1,5 @@
 config.json
+output.txt
+.vscode
+geckodriver.log
+

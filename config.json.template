@@ -1,23 +1,33 @@
 {
-    "site_list": "sitemasterlist.txt",
-    "pages": {
-        "highPriority": [
-            "",
-            "/wp-admin/edit.php",
-            "/wp-admin/options-general.php"
-        ],
-        "lowPriority": [
-            "/wp-admin/users.php"
-        ]
-    },
-    "login_site": "https://trubox.ca/login",
-    "list_offset": 2,
-    "browser_options": {
-        "signon.rememberSignons": true
-    },
-    "reverse_list": false,
-    "username": "<your-username>",
-    "password": "<your-pasword>",
-    "loaded_toast_duration": 5,
-    "hotkey": "h"
+    "automated_browser": {
+        "site_list": "sitemasterlist.txt",
+        "pages": {
+            "high_priority": [
+                "",
+                "/wp-admin/edit.php?post_type=page",
+                "/wp-admin/options-general.php"
+            ],
+            "site_list": [
+                "/wp-admin/network/sites.php?s=",
+                "&action=blogs"
+            ]
+        },
+        "login_site": "https://trubox.ca/login",
+        "list_offset": 2,
+        "browser_options": {
+            "signon.rememberSignons": true
+        },
+        "reverse_list": false,
+        "username": "<your-username>",
+        "password": "<your-pasword>",
+        "hotkeys": {
+            "next_batch": "`",
+            "previous_site": "<f2>",
+            "exit_program": "<f3>"
+        },
+        "loaded_toast_duration": 2,
+        "loaded_toast": true,
+        "output_file": "output.txt"
+    }
 }
+
