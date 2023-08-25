@@ -17,17 +17,18 @@
         "browser_options": {
             "signon.rememberSignons": true
         },
-        "reverse_list": false,
-        "username": "<your-username>",
-        "password": "<your-pasword>",
+        "reverse_list": true,
+        "username": "<username>",
+        "password": "<password>",
         "hotkeys": {
-            "next_batch": "`",
+            "next_batch": "<f1>",
             "previous_site": "<f2>",
             "exit_program": "<f3>"
         },
-        "loaded_toast_duration": 2,
-        "loaded_toast": true,
-        "output_file": "output.txt"
+        "loaded_toast_duration": 5,
+        "loaded_toast": false,
+        "output_file": "output.txt",
+        "maximize_browser": true,
+        "displayed_page": 1
     }
 }
-
