@@ -1,6 +1,6 @@
 ## TRUBOX-Site-Cleanup-Scripts
 
-Scripts to help automate and simpllify the process of cleaning up TRUBOX sites
+Scripts to help automate and simplify the process of cleaning up TRUBOX sites
 
 ## Files
 
