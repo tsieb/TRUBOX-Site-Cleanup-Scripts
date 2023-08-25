@@ -27,8 +27,8 @@ pip install pynput win10toast selenium
 ## Configuration
 
 1. Rename config.json.template to config.json.
-2. Replace <your-username> and <your-password> with your login credentials.
-3. Update the site list in sitemasterlist.txt with the sites you want to automate.
+2. Replace ```<your-username>``` and ```<your-password>``` with your login credentials.
+3. Update the site list in sitemasterlist.txt with the sites you want to iterate over.
 4. Configure the hotkeys, browser options, and pages in the config.json file.
 
 ## Execution
@@ -37,6 +37,14 @@ Run the script with the following command:
 ```bash
 python automated_browser.py
 ```
+
+## Additional Features
+- Reverse iteration is possible by setting ```reverse_list``` to ```true```
+- An offset can be added to align the internal list, starting at index 0, with another list that may start at another index (like a spreadsheet with header lines).
+- Additional Selenium browser options can be added to ```browser_options```. This has not been thouroughly tested, so use caution.
+- A Toast Windows notification can be enabled, with ```loaded_toast``` to ```true```, that will alert when the pages have loaded successfuly.
+- The browser can open in fullscreen automatically with ```maximize_browser```.
+- The displayed page after all pages are loaded can be set manually by changing ```displayed_page``` to the index of the desired page.
 
 ## Disclaimer
 
